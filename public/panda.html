@@ -1,0 +1,150 @@
+<h1>Panda - Paystack's asset generator</h1>
+<p>Panda is an asset generator that was designed for internal use within Paystack.</p>
+
+<img src="../assets/images/Panda/Panda preview.svg" alt="an image showing the mobile and web versions of Panda" width="650">
+
+<h3>Problem</h3>
+<p>The design studio team at Paystack produced all the graphic assets that were used by various teams across the company. These graphic assets included social media posts for events, product launch announcements, certificates, zoom backgrounds, etc. The requests for these assets were very frequent, and they caused 2 major problems;
+    <ul>
+        <li>Repetitive tasks: <br/>
+            Most of the design requests required minor adjustments on predefined layouts, consuming significant time that could be spent on more challenging tasks.
+        </li>
+        <Li>
+            Long turn around times: <br/>
+            Some design requests required multiple conversations between the design studio team and the requesters, leading to long turn around times on those requests.
+        </Li>
+    </ul>
+</p>
+
+<h3>Goals</h3>
+<p>
+    To address these problems, we needed to explore how we could streamline the creation of graphic assets by implementing an assets generator that would;
+    <ul>
+        <li>Increase the efficiency of the design studio team</li>
+        <li>Ensure faster turnaround time on requests</li>
+        <li>Increase the capacity of the team to take on and deliver more (challenging) tasks</li>
+    </ul>
+</p>
+
+<h3>Roles</h3>
+<p>I worked on this project with a team of 7 people. 2 backend engineers, a frontend engineer, a DevOps engineer, a product manager, and another product designer. I worked with the other designer to conduct research, define the user flow, and design the prototypes.</p>
+
+<h3>Research</h3>
+<p>The design studio team shared a detailed brief sharing the issues they had been experiencing, and what they envisioned Panda to be. Based on the brief they shared, we created a list of assumption statements. We were assuming that;
+    <ol>
+        <li>Our target users were the design studio team, and Stacks (non-designers in other teams within Paystack)</li>
+        <li>The Stacks wanted faster turn-around time for their design requests.</li>
+        <li>The design studio team wanted to spend less time working on repetitive tasks.</li>
+        <li>The design studio team wanted to make sure that every design sent off was good enough and consistent with the Paystack brand.</li>
+        <li>Users needed multiple sizes of posters for different touchpoints (banners, social media, billboards, etc)</li>
+    </ol>
+</p>
+
+<p>
+    Our next step was to speak with our identified target users to validate our assumptions, as well as fill in any knowledge gaps that we had. The goals of our research were:
+    <ul>
+        <li>To validate our target users.</li>
+        <li>To validate and understand the problems we were trying to solve for them.</li>
+        <li>To understand which walkarounds the design studio team had previously implemented to solve these problems.</li>
+        <li>To understand the current asset request and design process.</li>
+    </ul>
+</p>
+
+<h4>Insights</h4>
+<ul>
+    <li>Our assumptions were correct.</li>
+    <li>The asset request and design process looked like this;</li>
+    <img src="../assets/images/Panda/Insights scenario 1.png" alt="image showing the one scenario while requesting for an asset" height="300" />
+    <img src="../assets/images/Panda/Insights scenario 2.png" alt="image showing the scenario when detials changed after the asset had been created by the design studio team" height="300" />
+    <li>The Design Studio team had already tried a walkaround with Dev Rel team by creating editable templates on Figma. However, this did not work out because it involved non-designers needing to learn how to use a new tool.</li>
+</ul>
+
+<h4>Secondary Research</h4>
+<p>In addition to the interviews, we also did some secondary research into some sites like Canva, Pixelied, and Stencil, which were providing similar services. </p>
+
+
+<h3>Brainstorming</h3>
+<p>
+    Our initial idea was to create two separate portals for Panda;
+    <ul>
+        <li>A portal for Stacks</li>
+        <li>Another portal for the Design studio team</li>
+    </ul>
+</p>
+<p>However, during our brainstorming session, we started thinking deeply about how these would work. There were 2 things to consider:</p>
+
+<p>The first one was; <br/>
+    How can we make sure that all the assets produced by Stacks look consistent (in terms of spacing and layout), and match the Paystack brand?
+</p>
+<p>We figured out a solution for this. Instead of letting the Stacks directly edit the template, we thought about showing them a preview of the template, and providing them with a form that they could fill to edit that template. The form provided would depend on the template they wanted to edit, and the text fields would have character limits to ensure that any content added to the template did not mess up the layout.</p>
+
+<p>The second one was: <br/>
+    How exactly will the portal for the design studio team function?
+</p>
+<p>While thinking through the answer to this question, we discovered some potential problems with designing a separate portal for the design studio. We already knew that the design studio team made use of advanced applications like Figma in their day-to-day work, so the questions were:
+    <ul>
+        <li>Is it a smart idea to ask them to use a tool with much limited functionality to perform tasks that can be performed better on another application?</li>
+        <li>Can we build something that would replicate some of Figma’s essential features, and even if we can, is it a wise idea to try given that we have just 3 weeks?</li>
+    </ul>
+</p>
+
+<p>The answer to both questions was “No”, so we decided to discard the portal for the design studio team. We decided that the templates could already be uploaded by the engineers, and the Stacks could then make use of those templates to generate their assets.</p>
+
+<p>With Panda, we were trying to achieve this new workflow;</p>
+<img src="../assets/images/Panda/New workflow.png" alt="new workflow with Panda the design studio team is removed from the flow, and stacks have direct access to create new assets whenever they need to" height="300" />
+
+
+<h3>Outcomes</h3>
+<h4>User flows</h4>
+<p>The first step in the design process was to define the user flow for desktop and mobile.</p>
+<img src="../assets/images/Panda/User flows 1.png" alt="image showing the user flow on desktop" height="300" />
+<img src="../assets/images/Panda/User flows 2.png" alt="image showing the user flow on mobile" height="300" />
+
+
+<h4>Low fidelity wireframes</h4>
+<p>We also worked on the low fidelity wireframes to determine what the basic structure would be. We decided to have a single page design with 3 distinct sections. 
+    <ul>
+        <li>The first section is the Build section with the form for Stacks to fill. These forms are dynamic, and are generated based on the asset the Stack wants to generate. </li>
+        <li>The second section is the Preview section. After Stacks have filled a form, they can click on a button and see a preview of their flyer in the top right section.</li>
+        <li>In the last section, Stacks can see what their flyer would look like across different touch points. (The touch points also differ based on the assets)</li>
+    </ul>
+    <img src="../assets/images/Panda/low fidelity wireframes.png" alt="image showing the low fidelity wireframes created on Miro" height="300" />
+</p>
+
+<h4>High fidelity wireframes</h4>
+<h4>Login</h4>
+    <p>Before using Panda, Stacks have to log in with their Paystack email addresses.</p>
+    <img src="../assets/images/Panda/Login.png" alt="welcome screen of Panda" height="300" />
+
+<h4>Select asset type</h4>
+    <p>This is the Panda empty state, that shows when no event has been selected yet. To begin, a stack would choose an asset from the asset type dropdown. </p>
+    <img src="../assets/images/Panda/Select asset type.png" alt="screen for the user to select the tyoe of asset they want to create" height="300" />
+
+<h4>Fill dynamic form</h4>
+    <p>After choosing an asset type, a dynamic form is generated and Stacks can fill the input fields with the information they want on their asset. They can also choose from the illustrations provided.</p>
+    <img src="../assets/images/Panda/Fill dynamic form.png" alt="form for the users to fill out the information they want their asset to contain" height="300" />
+
+<h4>Generate preview</h4>
+    <p>After filling the form, Stacks can click on the Generate preview button to see how their asset will look across different platforms.</p>
+    <img src="../assets/images/Panda/Generate preview.png" alt="screen showing an active f=generate preview button when a user fills out the form for their asset" height="300" />
+
+<h4>Download</h4>
+    <p>Stacks can then download the assets for all platforms or can download for specific platforms.</p>
+    <img src="../assets/images/Panda/download.png" alt="scrren for users to dowload their asset based on the platfrom they want to use it on" height="300"/>
+
+<h4>Walkthrough</h4>
+    <p>We provided a simple walkthrough for Stacks, to serve as a guide if it was ever needed. This step is triggered by clicking on the help icon at any point during the process. </p>
+    <img src="../assets/images/Panda/Walkthrough.png" alt="screen showing the walkthrough to provide users with information on how to use Panda" height="300" />
+
+<h3>Impact</h3>
+    <ul>
+        <li>Paystack now has an assets generator that streamlines the assets creation process and improves employee efficiency.</li>
+        <li>The productivity of the design studio team has been increased. They no longer have to spend time on repetitive requests, and are now free to take on more challenging tasks.</li>
+        <li>Stacks can now create flyers as soon as they need them. The asset turn around time has been reduced from >1 day to about 5 minutes.</li>
+    </ul>
+
+<h3>Lessons</h3>
+    <ul>
+        <li>Communication - While working on this project, I learnt the importance of clear communication between all the teams involved in building a product. At the start of the project, the design and development teams were not communicating well. This caused confusion and led to us spending 6 weeks By fixing the communication gaps and ensuring full transparency by all parties, we were able to collaborate efficiently to deliver the final product.</li>
+        <li>Empathy - Everyone on a team is under a lot of pressure to make a project work. I learnt to understand this, and extend grace when things are not moving the way I want them to, or as fast as I want them to.</li>
+    </ul>
